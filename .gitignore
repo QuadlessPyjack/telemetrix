@@ -1,0 +1,12 @@
+/telemetrix.business/nbproject/private/
+/telemetrix.dataaccess/nbproject/private/
+/telemetrix.api/build/
+/telemetrix.api/nbproject/private/
+/telemetrix.persistence/nbproject/private/
+/telemetrix.dbEntities/nbproject/private/
+/telemetrix.business/build/
+/telemetrix.dbEntities/dist/
+/telemetrix.dbEntities/build/
+/telemetrix.persistence/build/
+/telemetrix.persistence/dist/
+/telemetrix.business/dist/
