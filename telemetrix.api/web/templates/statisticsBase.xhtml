@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="title">Photon Telemetrix</ui:insert></title>
+    </h:head>
+    <h:body>
+        <a id="LOGOTEXTSIDE" href="/index.xhtml">
+            <span class="fontSize30"><ui:insert name="viewCategoryTitle">Data</ui:insert></span>
+            <span class="fontSize28 regularFont">Telemetry</span>
+        </a>
+        <p:separator/>
+        <ui:repeat var="btn_idx" value="#{statistics.currentModelFilters()}" var="filter">
+            <p:commandButton style="margin-right: 10px" action="#{filter.action}}">#{filter.name}</p:commandButton>
+        </ui:repeat>
+        <h:panelGrid columns="1" columnClasses="left" style="width:100%">
+            <!--<p:chart type="line" model="#{chartView.animatedModel1}" style="width:400px;" />-->
+            <p:chart type="bar" model="#{statistics.currentModel()}" style="width:100%" />
+        </h:panelGrid>
+    </h:body>
+</ui:composition>

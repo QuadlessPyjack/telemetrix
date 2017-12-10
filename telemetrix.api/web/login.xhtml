@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Telemetrix</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        <div style="width:200px; height: 200px; position:absolute; top:10; left:0; right:0; margin:auto;">
+            <h1>Telemetrix</h1>
+            <h2>Project Photon</h2>
+        </div>
+        <h:form>
+            <div style="position:absolute; bottom:10; left:0; right:0;">
+                <p:messages autoUpdate="true"/>
+            </div>
+            <p:panel header="Logon"
+                     style="width:280px; height: 220px; position: absolute; top:0; bottom:0; left: 0; right: 0; margin: auto;">
+                <!--<p:messages autoUpdate="true"/>-->
+
+                <h:outputLabel for="userName" value="Username" style="font-weight: bold"/>
+                <p:inputText id="userName" value="#{credentials.userName}" 
+                             required="true" label="userName" style="margin-bottom:10px">
+                    <f:validateLength minimum="1" />
+                </p:inputText>
+                <p:message for="userName" display="both" />
+                <h:outputText value="#{credentials.userNameWarning}" style="margin-bottom:10px"/>
+
+                <h:outputLabel for="password" value="Password" style="font-weight: bold"/>
+                <p:password id="password" value="#{credentials.password}" required="true" label="password" 
+                            style="margin-bottom:10px">
+                    <f:validateLength minimum="1" />
+                </p:password>
+                <p:message for="password" />
+                <h:outputText value="#{credentials.passwordWarning}"
+                              style="margin-bottom:10px"/>
+                <p:commandButton value="Login" validateClient="true"
+                                 style="float: right; margin-top:10px; margin-bottom:10px"
+                                 action="#{home.login()}"
+                                 />
+            </p:panel>
+        </h:form>
+    </body>
+</ui:composition>
+
