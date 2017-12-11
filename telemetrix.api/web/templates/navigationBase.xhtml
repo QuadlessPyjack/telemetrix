@@ -14,14 +14,14 @@
                     <p:growl autoUpdate="true"/>
                     <p:menu id="navbar" style="height:100%">
                         <p:submenu label="View Data">
-                            <p:menuitem value="Per Device" actionListener="#{menuView.save}" icon="ui-icon-disk" />
-                            <p:menuitem value="Per User" actionListener="#{menuView.update}"  icon="ui-icon-arrowrefresh-1-w" />
-                            <p:menuitem value="Global" actionListener="#{menuView.update}"  icon="ui-icon-arrowrefresh-1-w" />
+                            <p:menuitem value="Per Device" actionListener="#{home.setCurrentPage('deviceStats')}" icon="ui-icon-disk" />
+                            <p:menuitem value="Per User" actionListener="#{home.setCurrentPage('userStats')}"  icon="ui-icon-arrowrefresh-1-w" />
+                            <p:menuitem value="Global" actionListener="#{home.setCurrentPage('globalStats')}"  icon="ui-icon-arrowrefresh-1-w" />
                         </p:submenu>
                         <p:separator />
                         <p:submenu label="Management">
-                            <p:menuitem value="Devices" actionListener="#{menuView.save}" icon="ui-icon-disk" />
-                            <p:menuitem value="Users" actionListener="#{menuView.save}" icon="ui-icon-disk" />
+                            <p:menuitem value="Devices" actionListener="#{home.setCurrentPage('deviceManagement')}" icon="ui-icon-disk" />
+                            <p:menuitem value="Users" actionListener="#{home.setCurrentPage('userManagement')}" icon="ui-icon-disk" />
                         </p:submenu>
                     </p:menu>
                     <ui:insert name="navigationBase" />
@@ -29,9 +29,7 @@
                 </h:form>
             </p:layoutUnit>
             <p:layoutUnit id="container" position="center">
-                <ui:insert name="content">
-                    Container
-                </ui:insert>
+                <ui:include src="#{home.getCurrentPage()}" />
             </p:layoutUnit>
         </p:layout>
     </h:body>

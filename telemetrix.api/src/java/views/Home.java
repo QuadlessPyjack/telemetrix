@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.context.FacesContext;
+import service.HomeService;
 
 /**
  *
@@ -18,6 +19,7 @@ import javax.faces.context.FacesContext;
 @Dependent
 public class Home {
 
+    HomeService _homeService = new HomeService();
     /**
      * Creates a new instance of Home
      */
@@ -32,6 +34,14 @@ public class Home {
     }
     
     public void login() throws IOException {
-         FacesContext.getCurrentInstance().getExternalContext().redirect("faces/default.xhtml");
+         FacesContext.getCurrentInstance().getExternalContext().redirect("faces/contentViews/default.xhtml");
+    }
+    
+    public void setCurrentPage(String pageName) {
+        _homeService.setCurrentPage(pageName);
+    }
+    
+    public String getCurrentPage() {
+        return _homeService.getCurrentPage();
     }
 }
