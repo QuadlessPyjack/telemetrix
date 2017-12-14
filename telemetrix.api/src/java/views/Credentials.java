@@ -7,7 +7,6 @@ package views;
 
 import java.util.Date;
 import javax.enterprise.context.Dependent;
-//import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -64,8 +63,7 @@ public class Credentials {
     public void setDate(Date date) {
         this.date = date;
     }
-    
-    
+
     public Credentials() {
     }
     

@@ -12,9 +12,13 @@ package service;
 public class HomeService {
 
     private final String _defaultPage = "/contentViews/default.xhtml";
-    private String _currentPage = _defaultPage;
-    private String _rootUrl = "/contentViews/";
-    private String _pageSuffix = ".xhtml";
+    private String _currentPage;
+    private final String _rootUrl = "/contentViews/";
+    private final String _pageSuffix = ".xhtml";
+
+    public HomeService() {
+        this._currentPage = _defaultPage;
+    }
 
     public void setCurrentPage(String pageName) {
         if (pageName == null) {
@@ -25,19 +29,19 @@ public class HomeService {
             return;
         }
 
-        _currentPage = urlBuilder(pageName);
+        this._currentPage = urlBuilder(pageName);
     }
 
     public String getCurrentPage() {
-        return _currentPage;
+        return this._currentPage;
     }
 
     public String getDefaultPage() {
-        return _defaultPage;
+        return this._defaultPage;
     }
 
     private String urlBuilder(String pageName) {
-        String pageUrl = _rootUrl + pageName + _pageSuffix;
+        String pageUrl = this._rootUrl + pageName + this._pageSuffix;
         return pageUrl;
     }
 

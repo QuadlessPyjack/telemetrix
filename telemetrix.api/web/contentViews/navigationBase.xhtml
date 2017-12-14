@@ -8,13 +8,14 @@
         <title><ui:insert name="title">Photon Telemetrix</ui:insert></title>
     </h:head>
     <h:body>
-        <p:layout style="min-width:1024px;min-height:768px;" fullPage="true">
+        <p:layout id="rootLayout" style="min-width:1024px;min-height:768px;" fullPage="true">
             <p:layoutUnit position="west" size="260">
                 <h:form id="navbar-parent" style="height:100%">
+                    <p:ajax update=":container" event="click"/>
                     <p:growl autoUpdate="true"/>
                     <p:menu id="navbar" style="height:100%">
                         <p:submenu label="View Data">
-                            <p:menuitem value="Per Device" actionListener="#{home.setCurrentPage('deviceStats')}" icon="ui-icon-disk" />
+                            <p:menuitem value="Per Device" actionListener="#{home.setCurrentPage('deviceStats')}" icon="ui-icon-arrowrefresh-1-w"/>
                             <p:menuitem value="Per User" actionListener="#{home.setCurrentPage('userStats')}"  icon="ui-icon-arrowrefresh-1-w" />
                             <p:menuitem value="Global" actionListener="#{home.setCurrentPage('globalStats')}"  icon="ui-icon-arrowrefresh-1-w" />
                         </p:submenu>
@@ -28,8 +29,10 @@
                     <p:sticky target="navbar" />
                 </h:form>
             </p:layoutUnit>
-            <p:layoutUnit id="container" position="center">
-                <ui:include src="#{home.getCurrentPage()}" />
+            <p:layoutUnit position="center">
+                <h:form id="container">
+                    <ui:include id="partialView" src="#{home.currentPage}" />
+                </h:form>
             </p:layoutUnit>
         </p:layout>
     </h:body>
