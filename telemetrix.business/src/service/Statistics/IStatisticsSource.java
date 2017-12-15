@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package service;
+package service.Statistics;
 
 /**
  *
  * @author bogdanv
  */
-public class StatisticsService {
-    
+public interface IStatisticsSource {
+    StatisticsModel generateModel(ChartEnum type);    
 }

@@ -13,11 +13,12 @@
             <span class="fontSize28 regularFont">Telemetry</span>
         </a>
         <p:separator/>
-        <ui:repeat var="btn_idx" value="#{statistics.currentModelFilters()}" var="filter">
-            <p:commandButton style="margin-right: 10px" action="#{filter.action}}">#{filter.name}</p:commandButton>
+        <f:event type="preRenderView" listener="#{statistics.setCurrentModel(modelType, chartType)}" />
+        <ui:repeat value="#{statistics.currentModelFilters}" var="filter">
+            <p:commandButton style="margin-right: 10px" action="#{filter.action}">#{filter.name}</p:commandButton>
         </ui:repeat>
         <h:panelGrid columns="1" columnClasses="left" style="width:100%">
-            <!--<p:chart type="line" model="#{chartView.animatedModel1}" style="width:400px;" />-->
+            <!--<p:chart type="line" model="#{statistics.animatedModel1}" style="width:400px;" />-->
             <p:chart type="bar" model="#{statistics.currentModel()}" style="width:100%" />
         </h:panelGrid>
     </h:body>
