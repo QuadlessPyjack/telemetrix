@@ -2,11 +2,15 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/templates/statisticsBase.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ct="http://www.chartistjsf.org/charts">
     <ui:param name="modelType" value="device" />
     <ui:param name="chartType" value="bar" />
+    <f:event type="preRenderView" listener="#{statistics.setCurrentModel(modelType, chartType, 'userStatistics')}" />
     <ui:define name="title">Device Statistics | Telemetrix </ui:define>
     <ui:define name="viewCategoryTitle">Device Statistics</ui:define>
     <ui:define name="content">
+            <ct:chart type="bar" model="#{statistics.getModel('device',0,'bar')}" style="width:100%; height:80%; y:20" />
     </ui:define>
 </ui:composition>
