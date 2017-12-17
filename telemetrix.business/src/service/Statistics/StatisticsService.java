@@ -19,6 +19,10 @@ public class StatisticsService {
         _currentModel = StatisticsProvider.getProvider(modelName).generateModel(chartType);
     }
     
+    public DataModel getCurrentModel() {
+        return _currentModel.getData().get(0);
+    }
+    
     public List<FilterModel> currentModelFilters() {
         return _currentModel.getFilterModel();
     }

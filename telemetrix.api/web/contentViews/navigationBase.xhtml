@@ -1,9 +1,8 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:p="http://primefaces.org/ui">
-
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ct="http://www.chartistjsf.org/charts">
     <h:head>
         <title><ui:insert name="title">Photon Telemetrix</ui:insert></title>
     </h:head>
@@ -31,6 +30,7 @@
             </p:layoutUnit>
             <p:layoutUnit position="center">
                 <h:form id="container">
+                    <ct:chart type="bar" model="#{statistics.currentModel}" style="display:none" />
                     <ui:include id="partialView" src="#{home.currentPage}" />
                 </h:form>
             </p:layoutUnit>

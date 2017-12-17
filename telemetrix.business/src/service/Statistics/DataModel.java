@@ -5,6 +5,7 @@
  */
 package service.Statistics;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,19 @@ public class DataModel {
      */
     public List<Map.Entry<Object,Object>> getData() {
         return _data;
+    }
+    
+    public Map<Object,Number> getDataMap() {
+        Map<Object, Number> map = new HashMap();
+        if(_data == null) {
+            return null;
+        }
+        
+        for(int idx = 0; idx < _data.size(); ++idx) {
+            map.put(_data.get(idx).getKey(), (Number) _data.get(idx).getValue());
+        }
+        
+        return map;
     }
 
     /**
