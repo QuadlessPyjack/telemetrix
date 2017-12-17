@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <f:view contentType="text/html"/>
+    <f:event type="preRenderView" listener="#{statistics.setCurrentModel(modelType, chartType, 'template')}" />
+    <ui:debug/>
+    <ui:insert name="title">Photon Telemetrix</ui:insert>
+    <a id="LOGOTEXTSIDE" href="/index.xhtml">
+        <span class="fontSize30"><ui:insert name="viewCategoryTitle">Data</ui:insert></span>
+        <span class="fontSize28 regularFont">Management</span>
+    </a>
+    <p:separator/>
+    <br/>
+    <br/>
+    <div>
+    <ui:insert name="content"/>
+    </div>
+</ui:composition>
