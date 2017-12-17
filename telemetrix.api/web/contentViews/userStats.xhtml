@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/statisticsBase.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ct="http://www.chartistjsf.org/charts">
+    <ui:param name="modelType" value="user" />
+    <ui:param name="chartType" value="bar" />
+    <ui:define name="title">User Statistics | Telemetrix </ui:define>
+    <ui:define name="viewCategoryTitle">User Statistics</ui:define>
+    <f:event type="preRenderView" listener="#{statistics.setCurrentModel(modelType, chartType, 'userStatistics')}" />
+    <ui:define name="content">
+            <ct:chart type="bar" model="#{statistics.getModel('user',0,'bar')}" style="width:100%; height:80%; y:20" />
+    </ui:define>
+</ui:composition>

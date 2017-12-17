@@ -10,10 +10,10 @@ package service.Statistics;
  * @author bogdanv
  */
 public class FilterModel {
-    private String action;
+    private int action;
     private String name;
     
-    public FilterModel(String paramAction, String paramName) {
+    public FilterModel(int paramAction, String paramName) {
         action = paramAction;
         name = paramName;
     }
@@ -21,14 +21,14 @@ public class FilterModel {
     /**
      * @return the action
      */
-    public String getAction() {
+    public int getAction() {
         return action;
     }
 
     /**
      * @param action the action to set
      */
-    public void setAction(String action) {
+    public void setAction(int action) {
         this.action = action;
     }
 

@@ -55,7 +55,8 @@ public class UserStatisticsSource implements IStatisticsSource {
         List<Map.Entry<Object, Object>> valuePairs = new ArrayList<>();
         
         //TODO: get this from repository
-        valuePairs.add(new SimpleImmutableEntry<>("", ""));
+        valuePairs.add(new SimpleImmutableEntry<>("male", 10));
+        valuePairs.add(new SimpleImmutableEntry<>("female", 12));
         
         return valuePairs;
     };

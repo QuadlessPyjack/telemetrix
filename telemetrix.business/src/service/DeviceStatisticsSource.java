@@ -22,9 +22,6 @@ import service.Statistics.StatisticsModel;
  * @author bogdanv
  */
 public class DeviceStatisticsSource implements IStatisticsSource {
-
-    private final String viewName = "deviceStatisticsView";
-
     @Override
     public StatisticsModel generateModel(ChartEnum type) {
         StatisticsModel deviceStatisticsModel = new StatisticsModel();
@@ -40,9 +37,9 @@ public class DeviceStatisticsSource implements IStatisticsSource {
 
     private List<FilterModel> generateFilterModel() {
         List<FilterModel> filterModels = new ArrayList<>();
-        filterModels.add(new FilterModel(viewName + "toggleLatency", "BLE Latency"));
-        filterModels.add(new FilterModel(viewName + "toggleFPS", "Framerate (FPS)"));
-        filterModels.add(new FilterModel(viewName + "toggleFPT", "Frame Processing Time (ms)"));
+        filterModels.add(new FilterModel(0, "BLE Latency"));
+        filterModels.add(new FilterModel(1, "Framerate (FPS)"));
+        filterModels.add(new FilterModel(2, "Frame Processing Time (ms)"));
 
         return filterModels;
     }

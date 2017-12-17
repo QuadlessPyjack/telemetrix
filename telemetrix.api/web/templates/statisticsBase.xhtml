@@ -8,6 +8,7 @@
     <h:outputStylesheet name="charts/charts.css" library="primefaces" />
 
     <f:view contentType="text/html"/>
+    <f:event type="preRenderView" listener="#{statistics.setCurrentModel(modelType, chartType, 'template')}" />
     <ui:debug/>
     <ui:insert name="title">Photon Telemetrix</ui:insert>
     <a id="LOGOTEXTSIDE" href="/index.xhtml">
@@ -15,13 +16,13 @@
         <span class="fontSize28 regularFont">Telemetry</span>
     </a>
     <p:separator/>
-    <ui:repeat value="#{statistics.currentModelFilters}" var="filter">
-        <p:commandButton style="margin-right: 10px" action="#{filter.action}" value="#{filter.name}"/>
+    <p:growl autoUpdate="true"/>
+    <ui:repeat value="#{statistics.getFiltersByModel(modelType)}" var="filter">
+        <p:commandButton  style="margin-right: 10px" action="#{statistics.setCurrentModelFilter(filter.action)}" value="#{filter.name}"/>
     </ui:repeat>
     <br/>
     <br/>
     <div>
-    <ct:chart type="bar" model="#{statistics.currentModel}" style="width:100%; height:80%; y:20" />
     <ui:insert name="content"/>
     </div>
 </ui:composition>
