@@ -16,13 +16,19 @@
         <span class="fontSize28 regularFont">Telemetry</span>
     </a>
     <p:separator/>
-    <p:growl autoUpdate="true"/>
-    <ui:repeat value="#{statistics.getFiltersByModel(modelType)}" var="filter">
-        <p:commandButton  style="margin-right: 10px" action="#{statistics.setCurrentModelFilter(filter.action)}" value="#{filter.name}"/>
-    </ui:repeat>
-    <br/>
-    <br/>
-    <div>
-    <ui:insert name="content"/>
-    </div>
+    <h:form>
+        <p:growl autoUpdate="true"/>
+        <ui:repeat value="#{statistics.getFiltersByModel(modelType)}" var="filter">
+            <p:commandButton  style="margin-right: 10px" 
+                              action="#{statistics.setCurrentModelFilter(filter.action)}" 
+                              value="#{filter.name}"
+                              update="@this">
+            </p:commandButton>
+        </ui:repeat>
+        <br/>
+        <br/>
+        <div>
+            <ui:insert name="content"/>
+        </div>
+    </h:form>
 </ui:composition>

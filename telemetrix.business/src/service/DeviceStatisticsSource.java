@@ -58,15 +58,41 @@ public class DeviceStatisticsSource implements IStatisticsSource {
         List<Map.Entry<Object, Object>> valuePairs = new ArrayList<>();
         
         //TODO: get this from repository
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        LocalDateTime time0 = LocalDateTime.from(f.parse("16-12-2017 15:10"));
-        LocalDateTime time1 = LocalDateTime.from(f.parse("16-12-2017 15:15"));
-        LocalDateTime time2 = LocalDateTime.from(f.parse("16-12-2017 15:20"));
-        LocalDateTime time3 = LocalDateTime.from(f.parse("16-12-2017 15:25"));
-        valuePairs.add(new SimpleImmutableEntry<>(time0.toString(), 150));
-        valuePairs.add(new SimpleImmutableEntry<>(time1.toString(), 145));
-        valuePairs.add(new SimpleImmutableEntry<>(time2.toString(), 200));
-        valuePairs.add(new SimpleImmutableEntry<>(time3.toString(), 170));
+        if ("latency".equals(dataModelId)) {
+            DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+            LocalDateTime time0 = LocalDateTime.from(f.parse("16-12-2017 15:10"));
+            LocalDateTime time1 = LocalDateTime.from(f.parse("16-12-2017 15:15"));
+            LocalDateTime time2 = LocalDateTime.from(f.parse("16-12-2017 15:20"));
+            LocalDateTime time3 = LocalDateTime.from(f.parse("16-12-2017 15:25"));
+            valuePairs.add(new SimpleImmutableEntry<>(time0.toString(), 150));
+            valuePairs.add(new SimpleImmutableEntry<>(time1.toString(), 145));
+            valuePairs.add(new SimpleImmutableEntry<>(time2.toString(), 200));
+            valuePairs.add(new SimpleImmutableEntry<>(time3.toString(), 170));
+        }
+        
+        if ("fps".equals(dataModelId)) {
+            DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+            LocalDateTime time0 = LocalDateTime.from(f.parse("16-12-2017 15:10"));
+            LocalDateTime time1 = LocalDateTime.from(f.parse("16-12-2017 15:15"));
+            LocalDateTime time2 = LocalDateTime.from(f.parse("16-12-2017 15:20"));
+            LocalDateTime time3 = LocalDateTime.from(f.parse("16-12-2017 15:25"));
+            valuePairs.add(new SimpleImmutableEntry<>(time0.toString(), 22));
+            valuePairs.add(new SimpleImmutableEntry<>(time1.toString(), 30));
+            valuePairs.add(new SimpleImmutableEntry<>(time2.toString(), 60));
+            valuePairs.add(new SimpleImmutableEntry<>(time3.toString(), 40));
+        }
+        
+        if ("fpt".equals(dataModelId)) {
+            DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+            LocalDateTime time0 = LocalDateTime.from(f.parse("16-12-2017 15:10"));
+            LocalDateTime time1 = LocalDateTime.from(f.parse("16-12-2017 15:15"));
+            LocalDateTime time2 = LocalDateTime.from(f.parse("16-12-2017 15:20"));
+            LocalDateTime time3 = LocalDateTime.from(f.parse("16-12-2017 15:25"));
+            valuePairs.add(new SimpleImmutableEntry<>(time0.toString(), 100));
+            valuePairs.add(new SimpleImmutableEntry<>(time1.toString(), 460));
+            valuePairs.add(new SimpleImmutableEntry<>(time2.toString(), 800));
+            valuePairs.add(new SimpleImmutableEntry<>(time3.toString(), 1670));
+        }
         
         return valuePairs;
     };

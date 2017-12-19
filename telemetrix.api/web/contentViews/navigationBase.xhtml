@@ -30,11 +30,11 @@
                 </h:form>
             </p:layoutUnit>
             <p:layoutUnit position="center">
-                <h:form id="container">
+                <p:panel id="container">
                     <f:event type="preRenderView" listener="#{statistics.setCurrentModel('device', 'bar', 'workaround')}" />
-                    <ct:chart type="bar" model="#{statistics.currentModel}" style="display:none" />
+                    <ct:chart type="bar" model="#{statistics.getModel('device',0,'bar')}" style="display:none" />
                     <ui:include id="partialView" src="#{home.currentPage}" />
-                </h:form>
+                </p:panel>
             </p:layoutUnit>
         </p:layout>
     </h:body>
