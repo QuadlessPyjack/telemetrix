@@ -10,5 +10,6 @@ package entities;
  * @author bogdanv
  */
 public class Device {
-    
+    public int Id;
+    public String Name;
 }

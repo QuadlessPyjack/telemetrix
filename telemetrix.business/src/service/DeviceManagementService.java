@@ -34,7 +34,7 @@ public class DeviceManagementService {
 //         return "DB ERROR";
 //     }
      //return devices.get(0).getName().split("\\_")[1];
-     return "";
+     return device.Name;
     }
 
     public void setDeviceName(String deviceName) {
