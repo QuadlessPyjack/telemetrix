@@ -1,14 +1,30 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:p="http://primefaces.org/ui"
-    template="/templates/managementBase.xhtml">
-    
-<ui:define name="title">Device Management | Telemetrix </ui:define>
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:g="http://www.w3.org/2000/svg"
+                template="/templates/managementBase.xhtml">
+
+    <ui:define name="title">Device Management | Telemetrix </ui:define>
     <ui:define name="viewCategoryTitle">Device Management</ui:define>
     <ui:define name="content">
+        <center>
+            <h:graphicImage value="../resources/devmgmt_header.png"/>
+        </center>
         <h:form>
-            
+            <p:panel>
+                <center>
+                <h:panelGrid columns="2" cellpading="5">
+                    <h:outputLabel for="deviceName" value="Device Name:" style="font-weight:bold" />
+                    <p:inputText id="deviceName" value="#{deviceManagement.deviceName}" required="true" label="Device Name" />
+                    <h:outputLabel for="deviceId" value="Device Serial#:" style="font-weight:bold" />
+                    <p:inputText id="deviceId" value="#{deviceManagement.deviceId}" readonly="true" />
+                </h:panelGrid>
+                    <br/>
+                    <br/>
+                    <p:commandButton icon="ui-icon-disk" value="Save" action="#{deviceManagement.save()}" />
+                </center>
+            </p:panel>
         </h:form>
     </ui:define>
 </ui:composition>

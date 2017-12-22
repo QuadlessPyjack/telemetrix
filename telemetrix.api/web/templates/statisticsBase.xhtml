@@ -19,7 +19,8 @@
     <h:form>
         <p:growl autoUpdate="true"/>
         <ui:repeat value="#{statistics.getFiltersByModel(modelType)}" var="filter">
-            <p:commandButton  style="margin-right: 10px" 
+            <p:commandButton  style="margin-right: 10px"
+                              onclick=""
                               action="#{statistics.setCurrentModelFilter(filter.action)}" 
                               value="#{filter.name}"
                               update="@this">

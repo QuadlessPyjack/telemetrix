@@ -93,7 +93,7 @@ public class DeviceStatisticsSource implements IStatisticsSource {
             valuePairs.add(new SimpleImmutableEntry<>(time2.toString(), 800));
             valuePairs.add(new SimpleImmutableEntry<>(time3.toString(), 1670));
         }
-        
+
         return valuePairs;
     };
 

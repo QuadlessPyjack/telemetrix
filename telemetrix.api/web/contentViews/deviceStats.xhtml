@@ -7,10 +7,12 @@
                 xmlns:ct="http://www.chartistjsf.org/charts">
     <ui:param name="modelType" value="device" />
     <ui:param name="chartType" value="bar" />
+    <ui:param name="filterId"  value="0" />
     <f:event type="preRenderView" listener="#{statistics.setCurrentModel(modelType, chartType, 'userStatistics')}" />
     <ui:define name="title">Device Statistics | Telemetrix </ui:define>
     <ui:define name="viewCategoryTitle">Device Statistics</ui:define>
     <ui:define name="content">
-            <ct:chart type="bar" model="#{statistics.getModel('device',0,'bar')}" style="width:100%; height:80%; y:20" />
+        <ct:chart type="bar" model="#{statistics.getModel('device',currentModelFilter,'bar')}" style="width:100%; height:80%; y:20" />
+        <h1>CurrentFilterIndex is: #{statistics.currentModelFilter}</h1>
     </ui:define>
 </ui:composition>
